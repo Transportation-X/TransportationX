@@ -3,33 +3,301 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bo Wayne Xu 的学术主页。东南大学交通学院博士研究生，关注交通安全、交通工程与智能交通。">
   <title>Bo Wayne Xu · 学术主页</title>
   <style>
-    body {
-      max-width: 700px;
-      margin: 48px auto;
-      padding: 0 24px;
-      font-family: system-ui, sans-serif;
-      line-height: 1.7;
-      color: #253047;
+    :root {
+      color-scheme: light;
+      --paper: #f8f7f2;
+      --ink: #192a25;
+      --muted: #52625b;
+      --accent: #17644f;
+      --line: #d6ddd3;
+      --panel: #1b332d;
+      --mint: #d6efaa;
+      --serif: Georgia, "Noto Serif SC", "Songti SC", SimSun, serif;
+      --sans: system-ui, "Microsoft YaHei", sans-serif;
+      --mono: ui-monospace, Consolas, monospace;
     }
-    h2 { margin-top: 32px; }
-    a { color: #235da8; }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-padding-top: 24px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.7 var(--sans); }
+    a { color: var(--accent); text-underline-offset: .24em; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+    a:hover { text-decoration-thickness: 2px; }
+    .shell { width: min(1120px, calc(100% - 72px)); margin-inline: auto; }
+    .skip-link { position: absolute; inset: 8px auto auto 8px; padding: 8px 16px; background: white; transform: translateY(-160%); }
+    .skip-link:focus { transform: none; }
+
+    .site-header {
+      min-height: 80px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .wordmark { display: inline-flex; align-items: center; gap: 11px; font-weight: 650; color: var(--ink); text-decoration: none; }
+    .wordmark svg { width: 26px; height: 26px; }
+    .site-nav { display: flex; flex-wrap: wrap; gap: 10px 24px; }
+    .site-nav a { color: var(--muted); font-size: .88rem; text-decoration: none; }
+    .site-nav a:hover { color: var(--accent); text-decoration: underline; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.08fr 1fr;
+      align-items: center;
+      gap: clamp(32px, 5.8vw, 84px);
+      padding-block: clamp(48px, 7vw, 94px);
+    }
+    .eyebrow { margin: 0; color: var(--accent); font: 600 .74rem/1.5 var(--mono); letter-spacing: .14em; }
+    h1 { margin: 17px 0 18px; font: 400 clamp(3.35rem, 6.2vw, 5.5rem)/.98 var(--serif); letter-spacing: -.065em; }
+    .affiliation { margin: 0; font-size: 1rem; font-weight: 630; }
+    .intro { max-width: 38ch; margin: 20px 0 26px; color: var(--muted); }
+    .primary-link {
+      display: inline-flex;
+      gap: 22px;
+      align-items: center;
+      padding: 9px 15px;
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      font-size: .88rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+    .primary-link:hover { background: #e7efe3; }
+    .figure { margin: 0; overflow: hidden; border-radius: 8px; background: var(--panel); color: var(--mint); }
+    .figure svg { display: block; width: 100%; height: auto; }
+    .figure figcaption {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 4px 12px;
+      padding: 11px 18px;
+      border-top: 1px solid #426057;
+      font: .72rem/1.6 var(--mono);
+    }
+
+    .content-section {
+      display: grid;
+      grid-template-columns: 1fr 2.65fr;
+      gap: 22px 32px;
+      padding-block: 31px 36px;
+      border-top: 1px solid var(--line);
+    }
+    .section-label { margin: 0; font-size: 1.25rem; font-weight: 660; }
+    .section-label span { display: block; margin-top: 5px; color: var(--accent); font: .72rem/1.6 var(--mono); letter-spacing: .09em; }
+    .topics { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 2px 0 0; list-style: none; }
+    .topics li { padding: 5px 12px; border: 1px solid #ccdacf; border-radius: 4px; background: #edf3eb; font-size: .87rem; }
+    .entry-list { margin: 0; padding: 0; list-style: none; }
+    .entry-list li + li { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+    .entry-title { margin: 0; font-weight: 650; }
+    .entry-details { margin: 4px 0 0; color: var(--muted); }
+    .publication-group + .publication-group { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); }
+    .publication-group h3 { margin: 0 0 8px; font-size: 1rem; }
+    .publication-count { margin-inline-start: 8px; color: var(--muted); font-size: .83rem; font-weight: 400; }
+    .project-meta { margin: 0 0 6px; color: var(--accent); font: .74rem/1.6 var(--mono); }
+    .project-title { margin: 0; font: 400 clamp(1.65rem, 3vw, 2.3rem)/1.2 var(--serif); }
+    .project-description { margin: 10px 0 13px; color: var(--muted); }
+    .text-link { font-size: .9rem; font-weight: 650; }
+    .site-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px 24px;
+      border-top: 1px solid var(--line);
+      padding-block: 20px 28px;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    @media (max-width: 760px) {
+      .shell { width: calc(100% - 40px); }
+      .hero { grid-template-columns: 1fr; gap: 30px; }
+      .figure { max-width: 550px; }
+    }
+    @media (max-width: 480px) {
+      .site-header { padding-block: 14px; }
+      .content-section { grid-template-columns: 1fr; gap: 13px; padding-block: 24px; }
+      h1 { font-size: clamp(2.7rem, 11vw, 3.5rem); }
+    }
   </style>
 </head>
 <body>
-  <main>
-    <h1>Bo Wayne Xu</h1>
-    <p>你的学校或机构 · 你的专业或方向</p>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header id="top" class="site-header shell">
+    <a class="wordmark" href="#top" lang="en">
+      <svg viewBox="0 0 26 26" aria-hidden="true">
+        <rect width="26" height="26" rx="4" fill="#17644f"/>
+        <path d="M0 19h8c6 0 6-12 12-12h6M0 7h8c6 0 6 12 12 12h6" fill="none" stroke="#d6efaa" stroke-width="1.5"/>
+      </svg>
+      Bo Wayne Xu
+    </a>
+    <nav class="site-nav" aria-label="主导航">
+      <a href="#education">教育经历</a>
+      <a href="#research">研究方向</a>
+      <a href="#publications">学术发表</a>
+      <a href="#projects">研究项目</a>
+      <a href="https://github.com/Transportation-X">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
 
-    <h2>研究兴趣</h2>
-    <p>我关注……，目前正在学习或研究……。</p>
+  <main id="main" class="shell">
+    <section class="hero" aria-labelledby="name">
+      <div>
+        <p class="eyebrow" lang="en">ACADEMIC PROFILE</p>
+        <h1 id="name" lang="en">Bo Wayne Xu</h1>
+        <p class="affiliation">东南大学交通学院 · 博士研究生</p>
+        <p class="intro">我的研究关注交通安全、交通工程与智能交通。这里收录了我愿意公开的研究项目和数据。</p>
+        <a class="primary-link" href="#projects">浏览研究项目 <span aria-hidden="true">↓</span></a>
+      </div>
 
-    <h2>研究与项目</h2>
-    <p>写下一个项目、课程报告或研究笔记，简单介绍你做了什么。</p>
+      <figure class="figure">
+        <svg viewBox="0 0 488 278" aria-hidden="true" focusable="false">
+          <defs>
+            <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+              <path d="M24 0H0V24" fill="none" stroke="#a8c5b4" stroke-opacity=".13"/>
+            </pattern>
+          </defs>
+          <rect width="488" height="278" fill="url(#grid)"/>
+          <path d="M0 97H196V0M290 0V97H488M488 184H290V278M196 278V184H0"
+                fill="none" stroke="#b8d0bf" stroke-opacity=".36" stroke-width="1.4"/>
+          <path d="M0 140H488M243 0V278" stroke="#b8d0bf" stroke-opacity=".28" stroke-dasharray="7 8"/>
+          <path d="M0 119H165Q221 119 221 63V0M267 278V203Q267 161 313 161H488"
+                fill="none" stroke="#d6efaa" stroke-width="2.4"/>
+          <path d="M0 162H150Q219 162 267 116T362 119H488M263 0V57Q263 119 315 119"
+                fill="none" stroke="#82c9b6" stroke-width="1.5" stroke-dasharray="4 5"/>
+          <g fill="#d6efaa" stroke="#1b332d" stroke-width="2">
+            <circle cx="91" cy="119" r="5"/><circle cx="221" cy="48" r="5"/>
+            <circle cx="267" cy="223" r="5"/><circle cx="401" cy="161" r="5"/>
+          </g>
+          <g fill="#b6cfc2" font-family="monospace" font-size="11" letter-spacing="1.4">
+            <text x="20" y="30">TRAFFIC SYSTEMS</text>
+            <text x="313" y="253">VEHICLE PATHS</text>
+          </g>
+        </svg>
+        <figcaption><span lang="en">FIG. 01</span><span>路口车辆轨迹示意</span></figcaption>
+      </figure>
+    </section>
 
-    <h2>联系</h2>
-    <p><a href="mailto:you@example.com">给我发邮件</a></p>
+    <section id="education" class="content-section" aria-labelledby="education-title">
+      <h2 id="education-title" class="section-label">教育经历 <span lang="en">EDUCATION</span></h2>
+      <ul class="entry-list">
+        <li>
+          <p class="entry-title">东南大学 · 交通学院</p>
+          <p class="entry-details">交通运输 · 博士研究生</p>
+          <p class="entry-details"><time datetime="2025-09">2025.09</time> 至今</p>
+        </li>
+        <li>
+          <p class="entry-title">北京交通大学 · 交通运输学院</p>
+          <p class="entry-details">交通运输规划与管理 · 硕士</p>
+          <p class="entry-details"><time datetime="2022-09">2022.09</time> 至 <time datetime="2025-06">2025.06</time></p>
+        </li>
+        <li>
+          <p class="entry-title">兰州交通大学 · 交通运输学院</p>
+          <p class="entry-details">交通工程 · 学士</p>
+          <p class="entry-details"><time datetime="2018-09">2018.09</time> 至 <time datetime="2022-06">2022.06</time></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="research" class="content-section" aria-labelledby="research-title">
+      <h2 id="research-title" class="section-label">研究方向 <span lang="en">RESEARCH</span></h2>
+      <ul class="topics">
+        <li>交通安全</li>
+        <li>交通工程</li>
+        <li>智能交通</li>
+      </ul>
+    </section>
+
+    <section id="publications" class="content-section" aria-labelledby="publications-title">
+      <h2 id="publications-title" class="section-label">学术发表 <span lang="en">PUBLICATIONS</span></h2>
+      <div>
+        <div class="publication-group">
+          <h3>期刊论文 <span class="publication-count">10 篇</span></h3>
+          <ul class="entry-list">
+            <li>
+              <p class="entry-title" lang="en">Latent-State Evolution of Rear-End Crash Precursor Risk in Mixed ADAS-Human Car-Following</p>
+              <p class="entry-details">Accident Analysis &amp; Prevention · 2026 · 第一作者</p>
+            </li>
+            <li>
+              <p class="entry-title" lang="en"><a href="https://doi.org/10.1080/15389588.2026.2709031">Analysis of factors affecting the severity of conflicts between right-turning heavy vehicles and non-motorized vehicles at road intersections</a></p>
+              <p class="entry-details">Traffic Injury Prevention · 2026 · 第二作者</p>
+            </li>
+            <li>
+              <p class="entry-title" lang="en"><a href="https://doi.org/10.1016/j.jtrangeo.2026.104729">Spatiotemporal distribution and underlying mechanisms of taxi energy consumption: Evidence from Changzhi, China</a></p>
+              <p class="entry-details">Journal of Transport Geography · 2026 · 第四作者</p>
+            </li>
+            <li>
+              <p class="entry-title" lang="en"><a href="https://doi.org/10.1080/15389588.2026.2677690">Dynamic Driving Risk Quantification and Informer-Based Prediction for Heavy Vehicles during Right Turns at Intersections</a></p>
+              <p class="entry-details">Traffic Injury Prevention · 2026 · 第二作者</p>
+            </li>
+            <li>
+              <p class="entry-title" lang="en"><a href="https://doi.org/10.1016/j.aap.2026.108543">An exploration of active safety technologies for commercial vehicles: Research on on-road driving risk identification based on alarm and other multi-source data</a></p>
+              <p class="entry-details">Accident Analysis &amp; Prevention · 2026 · 第一作者</p>
+            </li>
+            <li>
+              <p class="entry-title">电动汽车与行人/非机动车碰撞事故多发点段鉴别</p>
+              <p class="entry-details">华南理工大学学报（自然科学版） · 2025 · 第五作者</p>
+            </li>
+            <li>
+              <p class="entry-title" lang="en"><a href="https://doi.org/10.1080/19439962.2025.2529839">On-road driving risk assessment of regular passenger buses based on multi-source data integration</a></p>
+              <p class="entry-details">Journal of Transportation Safety &amp; Security · 2025 · 第一作者</p>
+            </li>
+            <li>
+              <p class="entry-title" lang="en"><a href="https://doi.org/10.1155/atr/6321559">Trajectory-Based Safety Analysis of Electric Battery Taxis</a></p>
+              <p class="entry-details">Journal of Advanced Transportation · 2025 · 第五作者</p>
+            </li>
+            <li>
+              <p class="entry-title"><a href="https://doi.org/10.11860/j.issn.1673-0291.20240006">轨迹数据驱动的高速公路事故风险研判</a></p>
+              <p class="entry-details">北京交通大学学报 · 2024 · 第二作者</p>
+            </li>
+            <li>
+              <p class="entry-title" lang="en"><a href="https://doi.org/10.1080/19439962.2024.2342478">Identifying spatio-temporal pattern of electric vehicles involved traffic accidents</a></p>
+              <p class="entry-details">Journal of Transportation Safety &amp; Security · 2024 · 第四作者</p>
+            </li>
+          </ul>
+        </div>
+        <div class="publication-group">
+          <h3>会议论文 <span class="publication-count">4 篇</span></h3>
+          <ul class="entry-list">
+            <li>
+              <p class="entry-title" lang="en">ADAS Conspicuousness in Mixed Traffic: Car-Following Safety, Driver Cognition, and Policy Preferences</p>
+              <p class="entry-details">106th Annual Meeting of the Transportation Research Board · 2027 年会 · 第一作者</p>
+            </li>
+            <li>
+              <p class="entry-title" lang="en">Event-Level Township-Road Conflict Screening and Semantic Annotation Using Roadside Radar and Vision–Language Models</p>
+              <p class="entry-details">106th Annual Meeting of the Transportation Research Board · 2027 年会 · 第一作者</p>
+            </li>
+            <li>
+              <p class="entry-title" lang="en">Research on Driving Risk Identification of Regular Passenger Buses based on Multi-source Data Integration</p>
+              <p class="entry-details">105th Annual Meeting of the Transportation Research Board · 2026 · 第一作者</p>
+            </li>
+            <li>
+              <p class="entry-title" lang="en"><a href="https://doi.org/10.1007/978-981-97-9644-1_4">Identification and Explanatory Analyses of Driving Risk Factors for Freeway Driven by Trajectory Data</a></p>
+              <p class="entry-details">The 11th International Conference on Traffic and Transportation Studies · 2024 · 第一作者</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="content-section" aria-labelledby="projects-title">
+      <h2 id="projects-title" class="section-label">研究项目 <span lang="en">PROJECTS</span></h2>
+      <article>
+        <p class="project-meta">开放数据</p>
+        <h3 class="project-title" lang="en">PASF-TS-Sound-Data</h3>
+        <p class="project-description">交通声音数据集，涵盖制动声、鸣笛声、警笛声和碰撞声。</p>
+        <a class="text-link" href="https://github.com/Transportation-X/PASF-TS-Sound-Data">查看数据仓库 <span aria-hidden="true">↗</span></a>
+      </article>
+    </section>
   </main>
+
+  <footer class="site-footer shell">
+    <span lang="en">Bo Wayne Xu</span>
+    <a href="https://github.com/Transportation-X">GitHub 个人资料 <span aria-hidden="true">↗</span></a>
+  </footer>
 </body>
 </html>
