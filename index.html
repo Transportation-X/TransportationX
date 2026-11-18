@@ -98,17 +98,27 @@
     .publication-group + .publication-group { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); }
     .publication-group h3 { margin: 0 0 8px; font-size: 1rem; }
     .publication-count { margin-inline-start: 8px; color: var(--muted); font-size: .83rem; font-weight: 400; }
+    #publications {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+    }
+    #publications > .section-label span {
+      display: inline-block;
+      margin: 0 0 0 12px;
+    }
+    #publications > div { min-width: 0; }
     .journal-list {
       margin: 0;
-      padding: 20px 24px 20px 46px;
+      padding: 14px 18px 14px 36px;
       border-radius: 4px;
       background: #edf2f0;
       font-size: 1rem;
-      line-height: 1.9;
+      line-height: 1.6;
       overflow-wrap: anywhere;
     }
-    .journal-list li { padding-left: 3px; }
-    .journal-list li + li { margin-top: 14px; }
+    .journal-list li { padding-left: 2px; }
+    .journal-list li + li { margin-top: 10px; }
+    .journal-name { font-style: italic; }
     .project-meta { margin: 0 0 6px; color: var(--accent); font: .74rem/1.6 var(--mono); }
     .project-title { margin: 0; font: 400 clamp(1.65rem, 3vw, 2.3rem)/1.2 var(--serif); }
     .project-description { margin: 10px 0 13px; color: var(--muted); }
@@ -233,15 +243,15 @@
         <div class="publication-group">
           <h3>期刊论文 <span class="publication-count">9 篇</span></h3>
           <ol class="journal-list">
-            <li lang="en">Xu, B., &amp; Lu, J., 2027. Latent-state evolution of rear-end crash precursor risk in mixed ADAS-human car-following. Accident Analysis &amp; Prevention, 241, 108853. <a href="https://doi.org/10.1016/j.aap.2026.108853">https://doi.org/10.1016/j.aap.2026.108853</a>.</li>
-            <li lang="en">Gui, L., Xu, B., &amp; Lu, J., 2026. Analysis of factors affecting the severity of conflicts between right-turning heavy vehicles and non-motorized vehicles at road intersections. Traffic Injury Prevention, advance online publication. <a href="https://doi.org/10.1080/15389588.2026.2709031">https://doi.org/10.1080/15389588.2026.2709031</a>.</li>
-            <li lang="en">Wang, M., Dong, C., Wang, J., Xu, B., Wang, J., &amp; Shao, C., 2026. Spatiotemporal distribution and underlying mechanisms of taxi energy consumption: Evidence from Changzhi, China. Journal of Transport Geography, 135, 104729. <a href="https://doi.org/10.1016/j.jtrangeo.2026.104729">https://doi.org/10.1016/j.jtrangeo.2026.104729</a>.</li>
-            <li lang="en">Li, W., Xu, B., Zhu, B., Fu, Y., Ding, R., Ma, Y., &amp; Lu, J., 2026. Dynamic driving risk quantification and Informer-based prediction for heavy vehicles during right turns at intersections. Traffic Injury Prevention, advance online publication. <a href="https://doi.org/10.1080/15389588.2026.2677690">https://doi.org/10.1080/15389588.2026.2677690</a>.</li>
-            <li lang="en">Xu, B., Lu, J., &amp; Dong, C., 2026. An exploration of active safety technologies for commercial vehicles: Research on on-road driving risk identification based on alarm and other multi-source data. Accident Analysis &amp; Prevention, 232, 108543. <a href="https://doi.org/10.1016/j.aap.2026.108543">https://doi.org/10.1016/j.aap.2026.108543</a>.</li>
-            <li lang="en">Xu, B., Dong, C., Li, P., Wang, M., &amp; Sun, D., 2025. On-road driving risk assessment of regular passenger buses based on multi-source data integration. Journal of Transportation Safety &amp; Security, 17(12), 1418–1442. <a href="https://doi.org/10.1080/19439962.2025.2529839">https://doi.org/10.1080/19439962.2025.2529839</a>.</li>
-            <li lang="en">Zhuang, Y., Li, N., Dong, C., Li, P., Xu, B., &amp; Yang, M., 2025. Trajectory‐Based Safety Analysis of Electric Battery Taxis. Journal of Advanced Transportation, 2025(1), 6321559. <a href="https://doi.org/10.1155/atr/6321559">https://doi.org/10.1155/atr/6321559</a>.</li>
-            <li lang="zh-CN">董春娇, 许博, 李鹏辉, 庄焱, &amp; 杨妙言, 2024. 轨迹数据驱动的高速公路事故风险研判. 北京交通大学学报, 48(6), 12–21. <a href="https://doi.org/10.11860/j.issn.1673-0291.20240006">https://doi.org/10.11860/j.issn.1673-0291.20240006</a>.</li>
-            <li lang="en">Zhuang, Y., Dong, C., Li, P., &amp; Xu, B., 2024. Identifying spatio-temporal pattern of electric vehicles involved traffic accidents. Journal of Transportation Safety &amp; Security, 16(12), 1448–1468. <a href="https://doi.org/10.1080/19439962.2024.2342478">https://doi.org/10.1080/19439962.2024.2342478</a>.</li>
+            <li lang="en"><strong>Xu, B.</strong>, &amp; Lu, J., 2027. Latent-state evolution of rear-end crash precursor risk in mixed ADAS-human car-following. <cite class="journal-name">ACCIDENT ANALYSIS &amp; PREVENTION</cite>, 241, 108853. <a href="https://doi.org/10.1016/j.aap.2026.108853">https://doi.org/10.1016/j.aap.2026.108853</a>.</li>
+            <li lang="en">Gui, L., <strong>Xu, B.</strong>, &amp; Lu, J., 2026. Analysis of factors affecting the severity of conflicts between right-turning heavy vehicles and non-motorized vehicles at road intersections. <cite class="journal-name">TRAFFIC INJURY PREVENTION</cite>, advance online publication. <a href="https://doi.org/10.1080/15389588.2026.2709031">https://doi.org/10.1080/15389588.2026.2709031</a>.</li>
+            <li lang="en">Wang, M., Dong, C., Wang, J., <strong>Xu, B.</strong>, Wang, J., &amp; Shao, C., 2026. Spatiotemporal distribution and underlying mechanisms of taxi energy consumption: Evidence from Changzhi, China. <cite class="journal-name">JOURNAL OF TRANSPORT GEOGRAPHY</cite>, 135, 104729. <a href="https://doi.org/10.1016/j.jtrangeo.2026.104729">https://doi.org/10.1016/j.jtrangeo.2026.104729</a>.</li>
+            <li lang="en">Li, W., <strong>Xu, B.</strong>, Zhu, B., Fu, Y., Ding, R., Ma, Y., &amp; Lu, J., 2026. Dynamic driving risk quantification and Informer-based prediction for heavy vehicles during right turns at intersections. <cite class="journal-name">TRAFFIC INJURY PREVENTION</cite>, advance online publication. <a href="https://doi.org/10.1080/15389588.2026.2677690">https://doi.org/10.1080/15389588.2026.2677690</a>.</li>
+            <li lang="en"><strong>Xu, B.</strong>, Lu, J., &amp; Dong, C., 2026. An exploration of active safety technologies for commercial vehicles: Research on on-road driving risk identification based on alarm and other multi-source data. <cite class="journal-name">ACCIDENT ANALYSIS &amp; PREVENTION</cite>, 232, 108543. <a href="https://doi.org/10.1016/j.aap.2026.108543">https://doi.org/10.1016/j.aap.2026.108543</a>.</li>
+            <li lang="en"><strong>Xu, B.</strong>, Dong, C., Li, P., Wang, M., &amp; Sun, D., 2025. On-road driving risk assessment of regular passenger buses based on multi-source data integration. <cite class="journal-name">JOURNAL OF TRANSPORTATION SAFETY &amp; SECURITY</cite>, 17(12), 1418–1442. <a href="https://doi.org/10.1080/19439962.2025.2529839">https://doi.org/10.1080/19439962.2025.2529839</a>.</li>
+            <li lang="en">Zhuang, Y., Li, N., Dong, C., Li, P., <strong>Xu, B.</strong>, &amp; Yang, M., 2025. Trajectory‐Based Safety Analysis of Electric Battery Taxis. <cite class="journal-name">JOURNAL OF ADVANCED TRANSPORTATION</cite>, 2025(1), 6321559. <a href="https://doi.org/10.1155/atr/6321559">https://doi.org/10.1155/atr/6321559</a>.</li>
+            <li lang="zh-CN">董春娇, <strong>许博</strong>, 李鹏辉, 庄焱, &amp; 杨妙言, 2024. 轨迹数据驱动的高速公路事故风险研判. <cite class="journal-name">北京交通大学学报</cite>, 48(6), 12–21. <a href="https://doi.org/10.11860/j.issn.1673-0291.20240006">https://doi.org/10.11860/j.issn.1673-0291.20240006</a>.</li>
+            <li lang="en">Zhuang, Y., Dong, C., Li, P., &amp; <strong>Xu, B.</strong>, 2024. Identifying spatio-temporal pattern of electric vehicles involved traffic accidents. <cite class="journal-name">JOURNAL OF TRANSPORTATION SAFETY &amp; SECURITY</cite>, 16(12), 1448–1468. <a href="https://doi.org/10.1080/19439962.2024.2342478">https://doi.org/10.1080/19439962.2024.2342478</a>.</li>
           </ol>
         </div>
         <div class="publication-group">
