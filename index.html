@@ -102,6 +102,8 @@
     .project-title { margin: 0; font: 400 clamp(1.65rem, 3vw, 2.3rem)/1.2 var(--serif); }
     .project-description { margin: 10px 0 13px; color: var(--muted); }
     .text-link { font-size: .9rem; font-weight: 650; }
+    .guestbook-content { min-width: 0; }
+    .giscus { margin-top: 20px; }
     .site-footer {
       display: flex;
       flex-wrap: wrap;
@@ -140,6 +142,7 @@
       <a href="#research">研究方向</a>
       <a href="#publications">学术发表</a>
       <a href="#projects">研究项目</a>
+      <a href="#guestbook">留言板</a>
       <a href="https://github.com/Transportation-X">GitHub <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
@@ -290,6 +293,31 @@
         <p class="project-description">交通声音数据集，涵盖制动声、鸣笛声、警笛声和碰撞声。</p>
         <a class="text-link" href="https://github.com/Transportation-X/PASF-TS-Sound-Data">查看数据仓库 <span aria-hidden="true">↗</span></a>
       </article>
+    </section>
+    <section id="guestbook" class="content-section" aria-labelledby="guestbook-title">
+      <h2 id="guestbook-title" class="section-label">留言板 <span lang="en">GUESTBOOK</span></h2>
+      <div class="guestbook-content">
+        <p class="entry-details">欢迎交流研究想法与合作。使用 GitHub 账号登录后即可留言，内容公开可见。</p>
+        <div class="giscus"></div>
+        <script src="https://giscus.app/client.js"
+                data-repo="Transportation-X/TransportationX"
+                data-repo-id="R_kgDOVn0UCg"
+                data-category="Announcements"
+                data-category-id="DIC_kwDOVn0UCs4DLZ77"
+                data-mapping="specific"
+                data-term="guestbook"
+                data-strict="1"
+                data-reactions-enabled="0"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="light"
+                data-lang="zh-CN"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async>
+        </script>
+        <p><a class="text-link" href="https://github.com/Transportation-X/TransportationX/discussions">在 GitHub 中查看讨论 <span aria-hidden="true">↗</span></a></p>
+      </div>
     </section>
   </main>
 
